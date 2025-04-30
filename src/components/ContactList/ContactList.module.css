@@ -1,0 +1,18 @@
+.contactList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  justify-content: center;
+  margin: 50px auto;
+  padding: 0;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}

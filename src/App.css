@@ -1,0 +1,12 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 58px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-decoration: double underline;
+  text-underline-offset: 0.2em;
+}
