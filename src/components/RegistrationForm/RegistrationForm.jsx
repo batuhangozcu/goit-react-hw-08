@@ -8,11 +8,16 @@ const RegistrationForm = () => {
   const dispatch = useDispatch();
 
   const initialValues = {
+    name: "",
     email: "",
     password: "",
   };
 
   const validationSchema = Yup.object({
+    name: Yup.string()
+      .required("Name is required")
+      .min(2, "Too short")
+      .max(50, "Too long"),
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
@@ -33,6 +38,12 @@ const RegistrationForm = () => {
       onSubmit={handleSubmit}
     >
       <Form className={styles.form}>
+        <div className={styles.formGroup}>
+          <label htmlFor="name">Name</label>
+          <Field type="text" id="name" name="name" />
+          <ErrorMessage name="name" component="div" className={styles.error} />
+        </div>
+
         <div className={styles.formGroup}>
           <label htmlFor="email">Email</label>
           <Field type="email" id="email" name="email" />

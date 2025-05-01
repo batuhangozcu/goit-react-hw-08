@@ -1,0 +1,31 @@
+.userMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.userMenu span {
+  font-size: 20px;
+  font-weight: 700;
+  color: #213547;
+}
+.userMenu button {
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  background-color: red;
+  border: 2px solid red;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.userMenu button:hover {
+  background-color: #213547;
+  color: white;
+  border-color: #213547;
+}
