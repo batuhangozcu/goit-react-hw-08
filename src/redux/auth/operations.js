@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 
 axios.defaults.baseURL = "https://connections-api.goit.global";
 
@@ -9,8 +10,14 @@ export const register = createAsyncThunk(
     try {
       const res = await axios.post("/users/signup", credentials);
       axios.defaults.headers.common.Authorization = `Bearer ${res.data.token}`;
+      toast.success("Registration successful!");
       return res.data;
     } catch (error) {
+      if (error.response?.status === 400) {
+        toast.error("Email already exists!");
+      } else {
+        toast.error("Registration failed! Please try again.");
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -21,9 +28,15 @@ export const login = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post("/users/login", credentials);
+      toast.success("Login successful!");
       axios.defaults.headers.common.Authorization = `Bearer ${res.data.token}`;
       return res.data;
     } catch (error) {
+      if (error.response?.status === 401) {
+        toast.error("Invalid email or password!");
+      } else {
+        toast.error("Login failed! Please try again.");
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
